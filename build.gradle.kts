@@ -10,10 +10,10 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
     implementation("org.hibernate:hibernate-core:6.2.6.Final")
-// https://mvnrepository.com/artifact/mysql/mysql-connector-java
     implementation("mysql:mysql-connector-java:8.0.33")
+    implementation("org.openjfx:javafx-controls:19")
+    implementation("org.openjfx:javafx-fxml:19")
 
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
