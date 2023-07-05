@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ru.bbuda.configuration.DatabaseConfig;
 
 import java.io.IOException;
 
@@ -20,7 +19,6 @@ public class DeliveryApp extends Application {
     }
 
     public static void main(String[] args) {
-        DatabaseConfig.getInstance();
         launch();
     }
 }
