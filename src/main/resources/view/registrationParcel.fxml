@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.bbuda.controller.RegistrationParcelController">
+    <children>
+        <AnchorPane prefHeight="67.0" prefWidth="700.0" style="-fx-background-color: #0000ff;">
+            <children>
+                <Label layoutX="7.0" layoutY="1.0" prefHeight="66.0" prefWidth="597.0" text="Регистрация посылки Vash" textFill="WHITE">
+                    <font>
+                        <Font name="System Italic" size="45.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <Button fx:id="ParcelBack" layoutX="598.0" layoutY="364.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="87.0" text="Назад">
+            <font>
+                <Font name="System Italic" size="12.0" />
+            </font>
+        </Button>
+        <PasswordField fx:id="ParcelSurnameRecipient" layoutX="32.0" layoutY="140.0" prefHeight="25.0" prefWidth="316.0" promptText="Фамилия получателя" />
+        <TextField fx:id="ParcelNameRecipient" layoutX="32.0" layoutY="93.0" prefHeight="25.0" prefWidth="230.0" promptText="Имя получателя" />
+        <Button fx:id="ParcelGenerateId" layoutX="53.0" layoutY="306.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="316.0" style="-fx-background-color: #F39C63;" text="Получить ID посылки">
+            <font>
+                <Font name="System Italic" size="26.0" />
+            </font>
+        </Button>
+        <TextField fx:id="ParcelPhoneRecipient" layoutX="32.0" layoutY="215.0" prefHeight="25.0" prefWidth="230.0" promptText="Номер телефона получателя" />
+        <TextField fx:id="ParcelWeight" layoutX="405.0" layoutY="140.0" prefHeight="25.0" prefWidth="230.0" promptText="Вес посылки в граммах" />
+        <CheckBox fx:id="ParcelIsUrgentDelivery" layoutX="493.0" layoutY="205.0" mnemonicParsing="false" text="Срочная доставка">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </CheckBox>
+    </children>
+</AnchorPane>
