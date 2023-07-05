@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "package")
-public class Package {
+@Table(name = "parcel")
+public class Parcel {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
