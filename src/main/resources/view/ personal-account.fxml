@@ -16,30 +16,31 @@
                 </Label>
             </children>
         </AnchorPane>
-        <Label layoutX="307.0" layoutY="322.0" prefHeight="67.0" prefWidth="383.0" text="-Только зарегистрированным пользователям!">
+        <Label layoutX="307.0" layoutY="322.0" prefHeight="67.0" prefWidth="350.0" text="-Только зарегистрированным пользователям!">
             <font>
-                <Font name="System Bold" size="16.0" />
+                <Font name="System Bold" size="14.0" />
             </font>
         </Label>
-      <Button layoutX="11.0" layoutY="323.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="296.0" style="-fx-background-color: #F39C63;" text="Отправить посылку клиенту">
+      <Button fx:id="PaSentParcel" layoutX="11.0" layoutY="323.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="296.0" style="-fx-background-color: #F39C63;" text="Отправить посылку клиенту">
          <font>
             <Font name="System Italic" size="19.0" />
          </font>
       </Button>
-      <Button layoutX="2.0" layoutY="67.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="203.0" text="Отправленные посылки">
+      <Button fx:id="PaSentParcels" layoutY="67.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="203.0" text="Отправленные посылки">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="234.0" layoutY="67.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="211.0" text="Ожидаемые посылки">
+      <Button fx:id="PaExpectedParcels" layoutX="234.0" layoutY="67.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="211.0" text="Ожидаемые посылки">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button layoutX="479.0" layoutY="67.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="211.0" text="Изменить данные аккаунта">
+      <Button fx:id="PaChangeData" layoutX="488.0" layoutY="68.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="211.0" text="Изменить данные аккаунта">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
+      <Button fx:id="PaBack" layoutX="643.0" layoutY="363.0" mnemonicParsing="false" text="Назад" />
     </children>
 </AnchorPane>
