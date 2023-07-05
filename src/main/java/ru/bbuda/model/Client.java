@@ -16,8 +16,11 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "second_name")
+    private String secondName;
 
     @Column(name = "phone")
     private String phone;
@@ -26,8 +29,8 @@ public class Client {
     private String address;
 
     @OneToMany(mappedBy = "src", cascade = CascadeType.ALL)
-    private List<Package> sentPackages;
+    private List<Parcel> sentPackages;
 
     @OneToMany(mappedBy = "dest", cascade = CascadeType.ALL)
-    private List<Package> expectedPackages;
+    private List<Parcel> expectedPackages;
 }
