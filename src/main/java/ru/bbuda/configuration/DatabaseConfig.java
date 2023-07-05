@@ -1,11 +1,13 @@
 package ru.bbuda.configuration;
 
 import lombok.Getter;
+
+import java.io.IOException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import ru.bbuda.model.Client;
+import ru.bbuda.model.Parcel;
 
-import java.io.IOException;
 import java.util.Properties;
 
 @Getter
@@ -17,9 +19,8 @@ public class DatabaseConfig {
     private DatabaseConfig() {
         try {
             sessionFactory = new Configuration().setProperties(getHibernateProperties())
+                                                .addAnnotatedClass(Parcel.class)
                                                 .addAnnotatedClass(Client.class)
-                                                .addAnnotatedClass(Package.class)
-                                                .configure()
                                                 .buildSessionFactory();
         } catch (Exception ex) {
             throw new ExceptionInInitializerError(ex);
@@ -32,10 +33,6 @@ public class DatabaseConfig {
         }
         return instance;
     }
-
-//    public void shutdown() {
-//        sessionFactory.close();
-//    }
 
     private Properties getHibernateProperties() {
         Properties properties = new Properties();
