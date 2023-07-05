@@ -4,7 +4,7 @@ plugins {
     id 'org.javamodularity.moduleplugin' version '1.8.12'
     id 'org.openjfx.javafxplugin' version '0.0.13'
     id 'org.beryx.jlink' version '2.25.0'
-    id("io.freefair.lombok") version "6.6.2"
+    id 'io.freefair.lombok' version '6.6.2'
 }
 
 group 'ru.bbuda'
@@ -23,6 +23,11 @@ targetCompatibility = '17'
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
+}
+
+application {
+    mainModule = 'ru.bbuda'
+    mainClass = 'ru.bbuda.DeliveryApp'
 }
 
 javafx {
