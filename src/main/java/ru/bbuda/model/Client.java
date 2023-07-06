@@ -17,9 +17,9 @@ public class Client extends Person {
     @JoinColumn(name = "address_name", referencedColumnName = "name", nullable = false)
     private Address address;
 
-    @OneToMany(mappedBy = "src", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "srcClient", cascade = CascadeType.ALL)
     private List<Parcel> sentPackages;
 
-    @OneToMany(mappedBy = "dest", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "destClient", cascade = CascadeType.ALL)
     private List<Parcel> expectedPackages;
 }

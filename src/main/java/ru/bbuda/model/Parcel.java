@@ -19,11 +19,11 @@ public class Parcel {
 
     @ManyToOne
     @JoinColumn(name = "src_client_id", referencedColumnName = "id", nullable = false)
-    private Client src;
+    private Client srcClient;
 
     @ManyToOne
     @JoinColumn(name = "dest_client_id", referencedColumnName = "id", nullable = false)
-    private Client dest;
+    private Client destClient;
 
     @Column(name = "express", nullable = false)
     private Boolean isExpress;
