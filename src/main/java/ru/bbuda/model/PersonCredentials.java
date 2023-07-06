@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "person_details")
+@Table(name = "person_credentials")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class PersonDetails {
+public class PersonCredentials {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)

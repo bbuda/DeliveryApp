@@ -10,15 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "courier")
-public class Courier extends PersonDetails {
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "second_name")
-    private String secondName;
-
-    @Column(name = "phone")
-    private String phone;
+public class Courier extends Person {
 
     /*TODO посылки*/
     /*TODO центр доставки 1 к 1 */

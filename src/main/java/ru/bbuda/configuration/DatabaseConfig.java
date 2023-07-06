@@ -1,14 +1,12 @@
 package ru.bbuda.configuration;
 
-import lombok.Getter;
-
 import java.io.IOException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import ru.bbuda.model.Client;
 import ru.bbuda.model.Courier;
 import ru.bbuda.model.Parcel;
-import ru.bbuda.model.PersonDetails;
+import ru.bbuda.model.PersonCredentials;
 
 import java.util.Properties;
 
@@ -23,7 +21,7 @@ public class DatabaseConfig {
                                                 .addAnnotatedClass(Parcel.class)
                                                 .addAnnotatedClass(Client.class)
                                                 .addAnnotatedClass(Courier.class)
-                                                .addAnnotatedClass(PersonDetails.class)
+                                                .addAnnotatedClass(PersonCredentials.class)
                                                 .buildSessionFactory();
         } catch (Exception ex) {
             throw new ExceptionInInitializerError(ex);

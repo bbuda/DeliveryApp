@@ -12,16 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "client")
-public class Client extends PersonDetails{
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "second_name")
-    private String secondName;
-
-    @Column(name = "phone")
-    private String phone;
-
+public class Client extends Person {
     @Column(name = "address")
     private String address;
 
