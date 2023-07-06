@@ -29,4 +29,7 @@ public class Parcel {
     private Boolean isExpress;
 
 
+    @ManyToOne
+    @JoinColumn(name = "courier_id", referencedColumnName = "id", nullable = false)
+    private Courier courier;
 }
