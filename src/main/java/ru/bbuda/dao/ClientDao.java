@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ClientDao {
     private static ClientDao instance;
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
     private ClientDao() {
         sessionFactory = DatabaseConfig.getInstance().getSessionFactory();
