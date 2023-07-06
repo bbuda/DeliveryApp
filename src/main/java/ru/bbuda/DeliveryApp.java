@@ -6,13 +6,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lombok.Getter;
 import ru.bbuda.configuration.SceneSources;
+import ru.bbuda.model.PersonCredentials;
 
 import java.io.IOException;
 import java.util.Objects;
 
+@Getter
 public class DeliveryApp extends Application {
     private static Stage stage;
+    private static PersonCredentials currentPersonCredentials;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -34,5 +38,9 @@ public class DeliveryApp extends Application {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static void setCurrentPersonCredentials(PersonCredentials currentPersonCredentials) {
+        DeliveryApp.currentPersonCredentials = currentPersonCredentials;
     }
 }
