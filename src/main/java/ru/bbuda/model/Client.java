@@ -2,32 +2,24 @@ package ru.bbuda.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @Entity
 @Table(name = "client")
-public class Client {
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Client extends Person {
+    @ManyToOne
+    @JoinColumn(name = "address_name", referencedColumnName = "name", nullable = false)
+    private Address address;
 
-    @Column(name = "name")
-    private String name;
+    @OneToMany(mappedBy = "srcClient", cascade = CascadeType.ALL)
+    private List<Parcel> sentPackages;
 
-    @Column(name = "phone")
-    private String phone;
-
-    @Column(name = "address")
-    private String address;
-
-    @OneToMany(mappedBy = "src", cascade = CascadeType.ALL)
-    private List<Package> sentPackages;
-
-    @OneToMany(mappedBy = "dest", cascade = CascadeType.ALL)
-    private List<Package> expectedPackages;
+    @OneToMany(mappedBy = "destClient", cascade = CascadeType.ALL)
+    private List<Parcel> expectedPackages;
 }
