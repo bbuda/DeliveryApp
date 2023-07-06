@@ -3,10 +3,7 @@ package ru.bbuda.configuration;
 import java.io.IOException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import ru.bbuda.model.Client;
-import ru.bbuda.model.Courier;
-import ru.bbuda.model.Parcel;
-import ru.bbuda.model.PersonCredentials;
+import ru.bbuda.model.*;
 
 import java.util.Properties;
 
@@ -22,6 +19,9 @@ public class DatabaseConfig {
                                                 .addAnnotatedClass(Client.class)
                                                 .addAnnotatedClass(Courier.class)
                                                 .addAnnotatedClass(PersonCredentials.class)
+                                                .addAnnotatedClass(Address.class)
+                                                .addAnnotatedClass(DeliveryCenter.class)
+                                                .addAnnotatedClass(Person.class)
                                                 .buildSessionFactory();
         } catch (Exception ex) {
             throw new ExceptionInInitializerError(ex);
