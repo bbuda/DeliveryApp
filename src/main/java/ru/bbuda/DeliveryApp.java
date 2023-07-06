@@ -16,7 +16,7 @@ public class DeliveryApp extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApp.class.getResource(SceneSources.REGISTRATION_PARCEL.getSrc()));
+        FXMLLoader fxmlLoader = new FXMLLoader(DeliveryApp.class.getResource(SceneSources.HELLO_VIEW.getSrc()));
         Scene scene = new Scene(fxmlLoader.load(), 700, 400);
         stage.setTitle("App");
         stage.setScene(scene);
