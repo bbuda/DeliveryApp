@@ -13,8 +13,9 @@ import java.util.List;
 @Entity
 @Table(name = "client")
 public class Client extends Person {
-    @Column(name = "address")
-    private String address;
+    @ManyToOne
+    @JoinColumn(name = "address_name", referencedColumnName = "name", nullable = false)
+    private Address address;
 
     @OneToMany(mappedBy = "src", cascade = CascadeType.ALL)
     private List<Parcel> sentPackages;
