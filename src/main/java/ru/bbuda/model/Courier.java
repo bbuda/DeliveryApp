@@ -5,14 +5,12 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "client")
-public class Client extends PersonDetails{
+@Table(name = "courier")
+public class Courier extends PersonDetails {
     @Column(name = "first_name")
     private String firstName;
 
@@ -22,12 +20,6 @@ public class Client extends PersonDetails{
     @Column(name = "phone")
     private String phone;
 
-    @Column(name = "address")
-    private String address;
-
-    @OneToMany(mappedBy = "src", cascade = CascadeType.ALL)
-    private List<Parcel> sentPackages;
-
-    @OneToMany(mappedBy = "dest", cascade = CascadeType.ALL)
-    private List<Parcel> expectedPackages;
+    /*TODO посылки*/
+    /*TODO центр доставки 1 к 1 */
 }
