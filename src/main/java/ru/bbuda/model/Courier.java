@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
@@ -12,6 +14,10 @@ import lombok.NoArgsConstructor;
 @Table(name = "courier")
 public class Courier extends Person {
 
-    /*TODO посылки*/
-    /*TODO центр доставки 1 к 1 */
+    @ManyToOne
+    @JoinColumn(name = "delivery_center_name", referencedColumnName = "name", nullable = false)
+    private DeliveryCenter deliveryCenter;
+
+    @OneToMany(mappedBy = "courier", cascade = CascadeType.ALL)
+    private List<Parcel> parcels;
 }
