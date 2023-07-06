@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @Entity
@@ -17,4 +19,6 @@ public class DeliveryCenter {
     @JoinColumn(name = "address_name", referencedColumnName = "name", nullable = false)
     private Address address;
 
+    @OneToMany(mappedBy = "deliveryCenter", cascade = CascadeType.ALL)
+    private List<Courier> couriers;
 }
