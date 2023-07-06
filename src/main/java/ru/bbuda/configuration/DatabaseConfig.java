@@ -6,11 +6,12 @@ import java.io.IOException;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import ru.bbuda.model.Client;
+import ru.bbuda.model.Courier;
 import ru.bbuda.model.Parcel;
+import ru.bbuda.model.PersonDetails;
 
 import java.util.Properties;
 
-@Getter
 public class DatabaseConfig {
 
     private static DatabaseConfig instance;
@@ -21,6 +22,8 @@ public class DatabaseConfig {
             sessionFactory = new Configuration().setProperties(getHibernateProperties())
                                                 .addAnnotatedClass(Parcel.class)
                                                 .addAnnotatedClass(Client.class)
+                                                .addAnnotatedClass(Courier.class)
+                                                .addAnnotatedClass(PersonDetails.class)
                                                 .buildSessionFactory();
         } catch (Exception ex) {
             throw new ExceptionInInitializerError(ex);
@@ -42,5 +45,9 @@ public class DatabaseConfig {
             throw new RuntimeException("Ошибка загрузки данных конфигурации базы данных", e);
         }
         return properties;
+    }
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
     }
 }
