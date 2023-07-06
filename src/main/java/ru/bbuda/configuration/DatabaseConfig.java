@@ -1,12 +1,15 @@
 package ru.bbuda.configuration;
 
 import java.io.IOException;
+
+import lombok.Getter;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import ru.bbuda.model.*;
 
 import java.util.Properties;
 
+@Getter
 public class DatabaseConfig {
 
     private static DatabaseConfig instance;
@@ -45,7 +48,4 @@ public class DatabaseConfig {
         return properties;
     }
 
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
 }
