@@ -26,32 +26,32 @@ public class AddressDao {
 
     public Optional<Address> findById(Long id) {
         Session session = sessionFactory.openSession();
-        Address Address = session.find(Address.class, id);
+        Address address = session.find(Address.class, id);
         session.close();
-        return Optional.ofNullable(Address);
+        return Optional.ofNullable(address);
     }
 
     public List<Address> findAll() {
         Session session = sessionFactory.openSession();
-        List<Address> Addresss = session.createQuery("from Address", Address.class).list();
+        List<Address> addresses = session.createQuery("from Address", Address.class).list();
         session.close();
-        return Addresss;
+        return addresses;
     }
 
-    public String saveOrUpdate(Address Address) {
+    public String saveOrUpdate(Address address) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Address merged = session.merge(Address);
+        Address merged = session.merge(address);
         transaction.commit();
         session.close();
 
         return merged.getName();
     }
 
-    public void delete(Address Address) {
+    public void delete(Address address) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.remove(Address);
+        session.remove(address);
         transaction.commit();
         session.close();
     }
