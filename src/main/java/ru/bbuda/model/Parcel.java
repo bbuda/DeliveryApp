@@ -14,18 +14,18 @@ public class Parcel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "weight_gram")
+    @Column(name = "weight_gram", nullable = false)
     private Long weightGram;
 
     @ManyToOne
-    @JoinColumn(name = "src_client_id", referencedColumnName = "id")
+    @JoinColumn(name = "src_client_id", referencedColumnName = "id", nullable = false)
     private Client src;
 
     @ManyToOne
-    @JoinColumn(name = "dest_client_id", referencedColumnName = "id")
+    @JoinColumn(name = "dest_client_id", referencedColumnName = "id", nullable = false)
     private Client dest;
 
-    @Column(name = "express")
+    @Column(name = "express", nullable = false)
     private Boolean isExpress;
 
 

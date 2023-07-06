@@ -13,12 +13,12 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "person")
 public class Person extends PersonCredentials{
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "second_name")
+    @Column(name = "second_name", nullable = false)
     private String secondName;
 
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false)
     private String phone;
 }
