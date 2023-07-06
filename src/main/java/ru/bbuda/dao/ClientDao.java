@@ -7,6 +7,7 @@ import ru.bbuda.configuration.DatabaseConfig;
 import ru.bbuda.model.Client;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ClientDao {
     private static ClientDao instance;
@@ -23,11 +24,11 @@ public class ClientDao {
         return instance;
     }
 
-    public Client findById(Long id) {
+    public Optional<Client> findById(Long id) {
         Session session = sessionFactory.openSession();
         Client client = session.find(Client.class, id);
         session.close();
-        return client;
+        return Optional.ofNullable(client);
     }
 
     public List<Client> findAll() {
@@ -37,12 +38,14 @@ public class ClientDao {
         return clients;
     }
 
-    public void saveOrUpdate(Client client) {
+    public Long saveOrUpdate(Client client) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.merge(client);
+        Client merged = session.merge(client);
         transaction.commit();
         session.close();
+
+        return merged.getId();
     }
 
     public void delete(Client client) {
