@@ -7,6 +7,7 @@ import ru.bbuda.configuration.DatabaseConfig;
 import ru.bbuda.model.Courier;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CourierDao {
     private static CourierDao instance;
@@ -23,32 +24,34 @@ public class CourierDao {
         return instance;
     }
 
-    public Courier findById(Long id) {
+    public Optional<Courier> findById(Long id) {
         Session session = sessionFactory.openSession();
-        Courier client = session.find(Courier.class, id);
+        Courier courier = session.find(Courier.class, id);
         session.close();
-        return client;
+        return Optional.ofNullable(courier);
     }
 
     public List<Courier> findAll() {
         Session session = sessionFactory.openSession();
-        List<Courier> clients = session.createQuery("from Client", Courier.class).list();
+        List<Courier> couriers = session.createQuery("from courier", Courier.class).list();
         session.close();
-        return clients;
+        return couriers;
     }
 
-    public void saveOrUpdate(Courier client) {
+    public Long saveOrUpdate(Courier courier) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.merge(client);
+        Courier merged = session.merge(courier);
         transaction.commit();
         session.close();
+        
+        return merged.getId();
     }
 
-    public void delete(Courier client) {
+    public void delete(Courier courier) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.remove(client);
+        session.remove(courier);
         transaction.commit();
         session.close();
     }
