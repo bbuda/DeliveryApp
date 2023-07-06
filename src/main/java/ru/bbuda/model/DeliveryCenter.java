@@ -21,4 +21,10 @@ public class DeliveryCenter {
 
     @OneToMany(mappedBy = "deliveryCenter", cascade = CascadeType.ALL)
     private List<Courier> couriers;
+
+    @OneToMany(mappedBy = "srcDeliveryCenter", cascade = CascadeType.ALL)
+    private List<Parcel> sentPackages;
+
+    @OneToMany(mappedBy = "destDeliveryCenter", cascade = CascadeType.ALL)
+    private List<Parcel> expectedPackages;
 }

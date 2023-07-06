@@ -17,6 +17,9 @@ public class Parcel {
     @Column(name = "weight_gram", nullable = false)
     private Long weightGram;
 
+    @Column(name = "express", nullable = false)
+    private Boolean isExpress;
+
     @ManyToOne
     @JoinColumn(name = "src_client_id", referencedColumnName = "id", nullable = false)
     private Client srcClient;
@@ -25,9 +28,13 @@ public class Parcel {
     @JoinColumn(name = "dest_client_id", referencedColumnName = "id", nullable = false)
     private Client destClient;
 
-    @Column(name = "express", nullable = false)
-    private Boolean isExpress;
+    @ManyToOne
+    @JoinColumn(name = "src_delivery_center_name", referencedColumnName = "name", nullable = false)
+    private DeliveryCenter srcDeliveryCenter;
 
+    @ManyToOne
+    @JoinColumn(name = "dest_delivery_center_name", referencedColumnName = "name", nullable = false)
+    private DeliveryCenter destDeliveryCenter;
 
     @ManyToOne
     @JoinColumn(name = "courier_id", referencedColumnName = "id", nullable = false)
