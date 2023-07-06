@@ -7,6 +7,7 @@ import ru.bbuda.configuration.DatabaseConfig;
 import ru.bbuda.model.Parcel;
 
 import java.util.List;
+import java.util.Optional;
 
 public class ParcelDao {
     private static ParcelDao instance;
@@ -23,32 +24,34 @@ public class ParcelDao {
         return instance;
     }
 
-    public Parcel findById(Long id) {
+    public Optional<Parcel> findById(Long id) {
         Session session = sessionFactory.openSession();
-        Parcel client = session.find(Parcel.class, id);
+        Parcel parcel = session.find(Parcel.class, id);
         session.close();
-        return client;
+        return Optional.ofNullable(parcel);
     }
 
     public List<Parcel> findAll() {
         Session session = sessionFactory.openSession();
-        List<Parcel> clients = session.createQuery("from Client", Parcel.class).list();
+        List<Parcel> parcels = session.createQuery("from parcel", Parcel.class).list();
         session.close();
-        return clients;
+        return parcels;
     }
 
-    public void saveOrUpdate(Parcel client) {
+    public Long saveOrUpdate(Parcel parcel) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.merge(client);
+        Parcel merged = session.merge(parcel);
         transaction.commit();
         session.close();
+        
+        return merged.getId();
     }
 
-    public void delete(Parcel client) {
+    public void delete(Parcel parcel) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.remove(client);
+        session.remove(parcel);
         transaction.commit();
         session.close();
     }
